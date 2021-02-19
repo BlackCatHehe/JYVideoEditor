@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E016F23B25DFAEFF0013F651 /* AVAsset+Generate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E016F23A25DFAEFF0013F651 /* AVAsset+Generate.swift */; };
+		E01F750A25DFC5A000688AF7 /* TestBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F750925DFC5A000688AF7 /* TestBt.swift */; };
+		E02E008425DF6C22006C684C /* TrackPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E008325DF6C22006C684C /* TrackPreviewView.swift */; };
+		E02E008825DF756B006C684C /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E008725DF756B006C684C /* TrackView.swift */; };
 		E0D64BBD25DF5ACC000196CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D64BBC25DF5ACC000196CA /* AppDelegate.swift */; };
 		E0D64BC425DF5ACC000196CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D64BC225DF5ACC000196CA /* Main.storyboard */; };
 		E0D64BC625DF5ACE000196CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D64BC525DF5ACE000196CA /* Assets.xcassets */; };
 		E0D64BC925DF5ACE000196CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D64BC725DF5ACE000196CA /* LaunchScreen.storyboard */; };
 		E0D64BD525DF5B53000196CA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D64BD425DF5B53000196CA /* HomeViewController.swift */; };
 		E0D64BD825DF5BD4000196CA /* EditorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D64BD725DF5BD4000196CA /* EditorManager.swift */; };
+		E0D64BDB25DF618D000196CA /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D64BDA25DF618D000196CA /* EditorViewController.swift */; };
+		E0D64BDE25DF63F4000196CA /* source.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E0D64BDD25DF63F4000196CA /* source.mp4 */; };
+		E0D64BE325DF671D000196CA /* Storyboard+Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D64BE225DF671D000196CA /* Storyboard+Instance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E016F23A25DFAEFF0013F651 /* AVAsset+Generate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+Generate.swift"; sourceTree = "<group>"; };
+		E01F750925DFC5A000688AF7 /* TestBt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBt.swift; sourceTree = "<group>"; };
+		E02E008325DF6C22006C684C /* TrackPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPreviewView.swift; sourceTree = "<group>"; };
+		E02E008725DF756B006C684C /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		E0D64BB925DF5ACC000196CA /* JYVideoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYVideoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D64BBC25DF5ACC000196CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D64BC325DF5ACC000196CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -24,6 +35,9 @@
 		E0D64BCA25DF5ACE000196CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0D64BD425DF5B53000196CA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E0D64BD725DF5BD4000196CA /* EditorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorManager.swift; sourceTree = "<group>"; };
+		E0D64BDA25DF618D000196CA /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		E0D64BDD25DF63F4000196CA /* source.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = source.mp4; sourceTree = "<group>"; };
+		E0D64BE225DF671D000196CA /* Storyboard+Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Instance.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +51,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E02E007F25DF6B77006C684C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E0D64BE225DF671D000196CA /* Storyboard+Instance.swift */,
+				E016F23A25DFAEFF0013F651 /* AVAsset+Generate.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E02E008125DF6B7F006C684C /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				E0D64BD725DF5BD4000196CA /* EditorManager.swift */,
+				E02E008A25DF7570006C684C /* UI */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		E02E008A25DF7570006C684C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E02E008325DF6C22006C684C /* TrackPreviewView.swift */,
+				E02E008725DF756B006C684C /* TrackView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		E0D64BB025DF5ACC000196CA = {
 			isa = PBXGroup;
 			children = (
@@ -57,14 +98,26 @@
 			isa = PBXGroup;
 			children = (
 				E0D64BBC25DF5ACC000196CA /* AppDelegate.swift */,
+				E01F750925DFC5A000688AF7 /* TestBt.swift */,
 				E0D64BD425DF5B53000196CA /* HomeViewController.swift */,
-				E0D64BD725DF5BD4000196CA /* EditorManager.swift */,
+				E0D64BDA25DF618D000196CA /* EditorViewController.swift */,
+				E02E008125DF6B7F006C684C /* Editor */,
+				E02E007F25DF6B77006C684C /* Extension */,
+				E0D64BE025DF63FC000196CA /* Resource */,
 				E0D64BC225DF5ACC000196CA /* Main.storyboard */,
 				E0D64BC525DF5ACE000196CA /* Assets.xcassets */,
 				E0D64BC725DF5ACE000196CA /* LaunchScreen.storyboard */,
 				E0D64BCA25DF5ACE000196CA /* Info.plist */,
 			);
 			path = JYVideoEditor;
+			sourceTree = "<group>";
+		};
+		E0D64BE025DF63FC000196CA /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E0D64BDD25DF63F4000196CA /* source.mp4 */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D64BC925DF5ACE000196CA /* LaunchScreen.storyboard in Resources */,
+				E0D64BDE25DF63F4000196CA /* source.mp4 in Resources */,
 				E0D64BC625DF5ACE000196CA /* Assets.xcassets in Resources */,
 				E0D64BC425DF5ACC000196CA /* Main.storyboard in Resources */,
 			);
@@ -139,7 +193,13 @@
 			files = (
 				E0D64BBD25DF5ACC000196CA /* AppDelegate.swift in Sources */,
 				E0D64BD825DF5BD4000196CA /* EditorManager.swift in Sources */,
+				E02E008825DF756B006C684C /* TrackView.swift in Sources */,
 				E0D64BD525DF5B53000196CA /* HomeViewController.swift in Sources */,
+				E0D64BE325DF671D000196CA /* Storyboard+Instance.swift in Sources */,
+				E02E008425DF6C22006C684C /* TrackPreviewView.swift in Sources */,
+				E01F750A25DFC5A000688AF7 /* TestBt.swift in Sources */,
+				E016F23B25DFAEFF0013F651 /* AVAsset+Generate.swift in Sources */,
+				E0D64BDB25DF618D000196CA /* EditorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zjy.JYVideoEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,7 +377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zjy.JYVideoEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

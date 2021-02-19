@@ -12,7 +12,7 @@
         <!--Door-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="JYVideoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enter new world"/>
                                 <connections>
-                                    <segue destination="9Va-IU-WuK" kind="show" id="7PJ-BX-XWn"/>
+                                    <action selector="clickChooseVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xcL-R2-DlC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -38,43 +38,61 @@
         <!--Editor-->
         <scene sceneID="rMz-V0-sbn">
             <objects>
-                <viewController id="9Va-IU-WuK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditorViewController" id="9Va-IU-WuK" customClass="EditorViewController" customModule="JYVideoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8aH-LM-od2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rK8-Ng-NM0">
-                                <rect key="frame" x="0.0" y="88" width="414" height="414"/>
+                            <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rK8-Ng-NM0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rK8-Ng-NM0" secondAttribute="height" id="WHl-gg-Vwr"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEt-ro-At6">
-                                <rect key="frame" x="161" y="522" width="92" height="38"/>
+                                <rect key="frame" x="161" y="478" width="92" height="38"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickPlay" destination="9Va-IU-WuK" eventType="touchUpInside" id="tcd-Ya-wgR"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptQ-zp-XxU" customClass="TrackPreviewView" customModule="JYVideoEditor" customModuleProvider="target">
+                                <rect key="frame" x="20" y="556" width="374" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Sa3-U0-C8h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b9I-yk-qQR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nEt-ro-At6" firstAttribute="centerX" secondItem="8aH-LM-od2" secondAttribute="centerX" id="9Ex-EY-jy2"/>
+                            <constraint firstItem="ptQ-zp-XxU" firstAttribute="centerX" secondItem="8aH-LM-od2" secondAttribute="centerX" id="Ea0-hf-fVq"/>
+                            <constraint firstItem="ptQ-zp-XxU" firstAttribute="leading" secondItem="8aH-LM-od2" secondAttribute="leadingMargin" id="Yyr-Q8-hcm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ptQ-zp-XxU" secondAttribute="trailing" id="ddd-88-kPb"/>
                             <constraint firstItem="nEt-ro-At6" firstAttribute="top" secondItem="rK8-Ng-NM0" secondAttribute="bottom" constant="20" id="dlb-kh-XN6"/>
                             <constraint firstItem="rK8-Ng-NM0" firstAttribute="leading" secondItem="b9I-yk-qQR" secondAttribute="leading" id="e8l-bs-Cwa"/>
+                            <constraint firstItem="ptQ-zp-XxU" firstAttribute="top" secondItem="nEt-ro-At6" secondAttribute="bottom" constant="40" id="nBj-r2-CDd"/>
                             <constraint firstItem="b9I-yk-qQR" firstAttribute="trailing" secondItem="rK8-Ng-NM0" secondAttribute="trailing" id="sro-ki-uk6"/>
                             <constraint firstItem="rK8-Ng-NM0" firstAttribute="top" secondItem="b9I-yk-qQR" secondAttribute="top" id="vpa-Av-1Oi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Editor" id="9z7-VA-t0E"/>
+                    <connections>
+                        <outlet property="playerView" destination="rK8-Ng-NM0" id="a14-jB-IUO"/>
+                        <outlet property="trackPreviewView" destination="ptQ-zp-XxU" id="HLU-Qc-gvc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OM9-g8-ISK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="139"/>
+            <point key="canvasLocation" x="1824.6376811594205" y="138.61607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EQx-qq-hat">
@@ -94,13 +112,75 @@
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="138.61607142857142"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="jeC-SE-GLi">
+            <objects>
+                <viewController id="KG9-kH-x8j" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="foC-7d-Ko3" customClass="TestView" customModule="JYVideoEditor" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ke-AW-i1M" customClass="TestBt" customModule="JYVideoEditor" customModuleProvider="target">
+                                <rect key="frame" x="46" y="251" width="188" height="199"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="button1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3f-3G-axt" customClass="TestBt" customModule="JYVideoEditor" customModuleProvider="target">
+                                <rect key="frame" x="209" y="537" width="122" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="button2"/>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J9T-3Y-0wo" customClass="TestView" customModule="JYVideoEditor" customModuleProvider="target">
+                                <rect key="frame" x="109" y="97" width="253" height="214"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shb-w1-9Zc" customClass="TestBt" customModule="JYVideoEditor" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="37" width="89" height="71"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <state key="normal" title="Button3"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVZ-Ns-hkM" customClass="TestBt" customModule="JYVideoEditor" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="116" width="97" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button4"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="bgView"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VX9-tk-Cfs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="View"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aed-Q8-0qi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479.71014492753625" y="843.75"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
