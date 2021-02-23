@@ -62,6 +62,15 @@ class TrackView: UIView {
     var image: UIImage? {
         didSet {
             if let image = image {
+                if let widthConstraint = self.constraints.filter({ $0.firstAttribute == .width }).first,
+                   let heightConstraint = self.constraints.filter({ $0.firstAttribute == .height }).first {
+                    widthConstraint.constant = image.size.width + sideLineWidth * 2
+                    heightConstraint.constant = image.size.height + lineHeight * 2
+                    layoutIfNeeded()
+                    setNeedsDisplay()
+                    return
+                }
+                
                 widthAnchor.constraint(equalToConstant: image.size.width + sideLineWidth * 2).isActive = true
                 heightAnchor.constraint(equalToConstant: image.size.height + lineHeight * 2).isActive = true
                 layoutIfNeeded()

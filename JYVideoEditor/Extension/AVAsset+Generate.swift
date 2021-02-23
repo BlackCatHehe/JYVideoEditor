@@ -9,8 +9,9 @@ import AVFoundation
 import Foundation
 import UIKit
 
+//MARK: - 视频资源生成预览图
 extension AVAsset {
-    func generatePreviewImage(with interval: TimeInterval, caseSize: CGSize, result: ((UIImage?) -> Void)?) {
+    func generatePreviewImage(interval: TimeInterval, caseSize: CGSize, result: ((UIImage?) -> Void)?) {
         generateAllPreviewSnapshop(interval: interval) { (imgs) in
             DispatchQueue.main.async {
                 let img = self.compositionImages(imgs, size: caseSize)
@@ -23,9 +24,9 @@ extension AVAsset {
         let width: CGFloat = size.width
         let height: CGFloat = size.height
         let seconds = self.tracks(withMediaType: .video).first?.timeRange.duration.seconds ?? 0.0
-        let size = CGSize(width: CGFloat(seconds) * width, height: height)
+        let totalSize = CGSize(width: CGFloat(seconds) * width, height: height)
         
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContextWithOptions(totalSize, false, 0)
         for i in 0..<imgs.count {
             let rect = CGRect.init(x: width * CGFloat(i), y: 0, width: width, height: height)
             imgs[i].draw(in: rect)
@@ -62,7 +63,7 @@ extension AVAsset {
             } else {
                 print("generator snapshot failed: \(err)")
             }
-            if currentCount >= totalCount {
+            if currentCount > totalCount {
                 let resultImgs = resultImages.sorted { (result1, result2) -> Bool in
                     result1.0 < result2.0
                 }.map { $0.1 }
@@ -71,3 +72,43 @@ extension AVAsset {
         }
     }
 }
+
+//MARK: - 音频资源生成波形图
+extension AVAsset {
+    func generateAudioToWaves(interval: TimeInterval, caseSize: CGSize) -> UIImage? {
+        guard let track = tracks(withMediaType: .audio).first else {
+            return nil
+        }
+        
+        let duration = CGFloat(track.timeRange.duration.seconds)
+        let width = caseSize.width * duration / CGFloat(interval)
+        
+        let imageSize = CGSize.init(width: width, height: caseSize.height)
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        
+        let bgPath = UIBezierPath(rect: .init(origin: .zero, size: imageSize))
+        context.setFillColor(UIColor.cyan.cgColor)
+        bgPath.fill()
+        
+        let path = UIBezierPath()
+        path.move(to: .init(x: 0, y: caseSize.height/2))
+        var i: CGFloat = 0.0
+        repeat  {
+            let pointY = sin(i / 10 * .pi / 2) * caseSize.height / 2 * 0.8 + caseSize.height / 2
+            i += 10
+            path.addLine(to: .init(x: i, y: pointY))
+        }while i < CGFloat(duration * caseSize.width)
+        context.setStrokeColor((UIColor.white.cgColor))
+        path.lineWidth = 2
+        path.stroke()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+        
+    }
+    
+}
+

@@ -11,6 +11,10 @@
 		E01F750A25DFC5A000688AF7 /* TestBt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01F750925DFC5A000688AF7 /* TestBt.swift */; };
 		E02E008425DF6C22006C684C /* TrackPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E008325DF6C22006C684C /* TrackPreviewView.swift */; };
 		E02E008825DF756B006C684C /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E008725DF756B006C684C /* TrackView.swift */; };
+		E039970025E4979D007E6D5D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03996FF25E4979D007E6D5D /* Track.swift */; };
+		E0470D4825E0B5BA0063D83E /* CenterIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0470D4725E0B5B90063D83E /* CenterIndicatorView.swift */; };
+		E0470D4B25E0C5910063D83E /* UIImage+ConvertVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0470D4A25E0C5910063D83E /* UIImage+ConvertVideo.swift */; };
+		E06806AC25E398E8004AF469 /* insert.MOV in Resources */ = {isa = PBXBuildFile; fileRef = E06806AB25E398E8004AF469 /* insert.MOV */; };
 		E0D64BBD25DF5ACC000196CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D64BBC25DF5ACC000196CA /* AppDelegate.swift */; };
 		E0D64BC425DF5ACC000196CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D64BC225DF5ACC000196CA /* Main.storyboard */; };
 		E0D64BC625DF5ACE000196CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D64BC525DF5ACE000196CA /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 		E01F750925DFC5A000688AF7 /* TestBt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBt.swift; sourceTree = "<group>"; };
 		E02E008325DF6C22006C684C /* TrackPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPreviewView.swift; sourceTree = "<group>"; };
 		E02E008725DF756B006C684C /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		E03996FF25E4979D007E6D5D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		E0470D4725E0B5B90063D83E /* CenterIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterIndicatorView.swift; sourceTree = "<group>"; };
+		E0470D4A25E0C5910063D83E /* UIImage+ConvertVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ConvertVideo.swift"; sourceTree = "<group>"; };
+		E06806AB25E398E8004AF469 /* insert.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = insert.MOV; sourceTree = "<group>"; };
 		E0D64BB925DF5ACC000196CA /* JYVideoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYVideoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D64BBC25DF5ACC000196CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D64BC325DF5ACC000196CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +64,7 @@
 			children = (
 				E0D64BE225DF671D000196CA /* Storyboard+Instance.swift */,
 				E016F23A25DFAEFF0013F651 /* AVAsset+Generate.swift */,
+				E0470D4A25E0C5910063D83E /* UIImage+ConvertVideo.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -65,6 +74,7 @@
 			children = (
 				E0D64BD725DF5BD4000196CA /* EditorManager.swift */,
 				E02E008A25DF7570006C684C /* UI */,
+				E03996FF25E4979D007E6D5D /* Track.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -74,6 +84,7 @@
 			children = (
 				E02E008325DF6C22006C684C /* TrackPreviewView.swift */,
 				E02E008725DF756B006C684C /* TrackView.swift */,
+				E0470D4725E0B5B90063D83E /* CenterIndicatorView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -115,6 +126,7 @@
 		E0D64BE025DF63FC000196CA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E06806AB25E398E8004AF469 /* insert.MOV */,
 				E0D64BDD25DF63F4000196CA /* source.mp4 */,
 			);
 			path = Resource;
@@ -180,6 +192,7 @@
 				E0D64BC925DF5ACE000196CA /* LaunchScreen.storyboard in Resources */,
 				E0D64BDE25DF63F4000196CA /* source.mp4 in Resources */,
 				E0D64BC625DF5ACE000196CA /* Assets.xcassets in Resources */,
+				E06806AC25E398E8004AF469 /* insert.MOV in Resources */,
 				E0D64BC425DF5ACC000196CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,7 +210,10 @@
 				E0D64BD525DF5B53000196CA /* HomeViewController.swift in Sources */,
 				E0D64BE325DF671D000196CA /* Storyboard+Instance.swift in Sources */,
 				E02E008425DF6C22006C684C /* TrackPreviewView.swift in Sources */,
+				E0470D4B25E0C5910063D83E /* UIImage+ConvertVideo.swift in Sources */,
 				E01F750A25DFC5A000688AF7 /* TestBt.swift in Sources */,
+				E0470D4825E0B5BA0063D83E /* CenterIndicatorView.swift in Sources */,
+				E039970025E4979D007E6D5D /* Track.swift in Sources */,
 				E016F23B25DFAEFF0013F651 /* AVAsset+Generate.swift in Sources */,
 				E0D64BDB25DF618D000196CA /* EditorViewController.swift in Sources */,
 			);

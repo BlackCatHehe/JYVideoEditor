@@ -50,20 +50,124 @@
                                     <constraint firstAttribute="width" secondItem="rK8-Ng-NM0" secondAttribute="height" id="WHl-gg-Vwr"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEt-ro-At6">
-                                <rect key="frame" x="161" y="478" width="92" height="38"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickPlay" destination="9Va-IU-WuK" eventType="touchUpInside" id="tcd-Ya-wgR"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Lhw-n2-s6a">
+                                <rect key="frame" x="0.0" y="478" width="414" height="124"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4t2-aB-TlR">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="38"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZo-VH-Oes">
+                                                <rect key="frame" x="0.0" y="0.0" width="204.5" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                                <state key="normal" title="Play">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickPlay" destination="9Va-IU-WuK" eventType="touchUpInside" id="oVd-wO-xOR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEt-ro-At6">
+                                                <rect key="frame" x="209.5" y="0.0" width="204.5" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                                <state key="normal" title="Clip">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickClip" destination="9Va-IU-WuK" eventType="touchUpInside" id="VRl-LC-1Ka"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pWD-a3-hjZ">
+                                        <rect key="frame" x="0.0" y="43" width="414" height="38"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-JC-Car">
+                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                                <state key="normal" title="插 v1">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickInsertV1" destination="9Va-IU-WuK" eventType="touchUpInside" id="NUR-i3-ECk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bc9-c3-YxZ">
+                                                <rect key="frame" x="139.5" y="0.0" width="135" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                                <state key="normal" title="插 v2">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickInsertV2WithPic" destination="9Va-IU-WuK" eventType="touchUpInside" id="R7S-aW-6RQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhe-xs-sLa">
+                                                <rect key="frame" x="279.5" y="0.0" width="134.5" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                                <state key="normal" title="插 原声">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickInsertOriginAudio" destination="9Va-IU-WuK" eventType="touchUpInside" id="BrS-78-5Gl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oka-zH-TxP">
+                                        <rect key="frame" x="0.0" y="86" width="414" height="38"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n43-Ff-1GM">
+                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                                <state key="normal" title="rm v1">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickRemoveV1" destination="9Va-IU-WuK" eventType="touchUpInside" id="Ohi-NQ-kS3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96R-SG-naA">
+                                                <rect key="frame" x="139.5" y="0.0" width="135" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                                <state key="normal" title="rm v2">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickRemoveV2" destination="9Va-IU-WuK" eventType="touchUpInside" id="qcY-S6-XK9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxj-a7-eao">
+                                                <rect key="frame" x="279.5" y="0.0" width="134.5" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
+                                                <state key="normal" title="rm 原声">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clickRemoveOriginAudio" destination="9Va-IU-WuK" eventType="touchUpInside" id="Ia0-IR-hbA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptQ-zp-XxU" customClass="TrackPreviewView" customModule="JYVideoEditor" customModuleProvider="target">
-                                <rect key="frame" x="20" y="556" width="374" height="200"/>
+                                <rect key="frame" x="20" y="612" width="374" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Sa3-U0-C8h"/>
@@ -73,14 +177,16 @@
                         <viewLayoutGuide key="safeArea" id="b9I-yk-qQR"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nEt-ro-At6" firstAttribute="centerX" secondItem="8aH-LM-od2" secondAttribute="centerX" id="9Ex-EY-jy2"/>
                             <constraint firstItem="ptQ-zp-XxU" firstAttribute="centerX" secondItem="8aH-LM-od2" secondAttribute="centerX" id="Ea0-hf-fVq"/>
+                            <constraint firstItem="Lhw-n2-s6a" firstAttribute="top" secondItem="rK8-Ng-NM0" secondAttribute="bottom" constant="20" id="NHO-6m-LAH"/>
+                            <constraint firstItem="Lhw-n2-s6a" firstAttribute="centerX" secondItem="8aH-LM-od2" secondAttribute="centerX" id="Pcb-gh-ncj"/>
+                            <constraint firstAttribute="trailing" secondItem="Lhw-n2-s6a" secondAttribute="trailing" id="YH4-fr-9NN"/>
                             <constraint firstItem="ptQ-zp-XxU" firstAttribute="leading" secondItem="8aH-LM-od2" secondAttribute="leadingMargin" id="Yyr-Q8-hcm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ptQ-zp-XxU" secondAttribute="trailing" id="ddd-88-kPb"/>
-                            <constraint firstItem="nEt-ro-At6" firstAttribute="top" secondItem="rK8-Ng-NM0" secondAttribute="bottom" constant="20" id="dlb-kh-XN6"/>
                             <constraint firstItem="rK8-Ng-NM0" firstAttribute="leading" secondItem="b9I-yk-qQR" secondAttribute="leading" id="e8l-bs-Cwa"/>
-                            <constraint firstItem="ptQ-zp-XxU" firstAttribute="top" secondItem="nEt-ro-At6" secondAttribute="bottom" constant="40" id="nBj-r2-CDd"/>
+                            <constraint firstItem="ptQ-zp-XxU" firstAttribute="top" secondItem="Lhw-n2-s6a" secondAttribute="bottom" constant="10" id="gr5-qz-Fj7"/>
                             <constraint firstItem="b9I-yk-qQR" firstAttribute="trailing" secondItem="rK8-Ng-NM0" secondAttribute="trailing" id="sro-ki-uk6"/>
+                            <constraint firstItem="Lhw-n2-s6a" firstAttribute="leading" secondItem="8aH-LM-od2" secondAttribute="leading" id="tt9-hC-pqr"/>
                             <constraint firstItem="rK8-Ng-NM0" firstAttribute="top" secondItem="b9I-yk-qQR" secondAttribute="top" id="vpa-Av-1Oi"/>
                         </constraints>
                     </view>
@@ -120,42 +226,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ke-AW-i1M" customClass="TestBt" customModule="JYVideoEditor" customModuleProvider="target">
-                                <rect key="frame" x="46" y="251" width="188" height="199"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                                <state key="normal" title="button1"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3f-3G-axt" customClass="TestBt" customModule="JYVideoEditor" customModuleProvider="target">
-                                <rect key="frame" x="209" y="537" width="122" height="124"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <state key="normal" title="button2"/>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J9T-3Y-0wo" customClass="TestView" customModule="JYVideoEditor" customModuleProvider="target">
-                                <rect key="frame" x="109" y="97" width="253" height="214"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kye-hl-jLK">
+                                <rect key="frame" x="132" y="395.5" width="150" height="105"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shb-w1-9Zc" customClass="TestBt" customModule="JYVideoEditor" customModuleProvider="target">
-                                        <rect key="frame" x="32" y="37" width="89" height="71"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                        <state key="normal" title="Button3"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVZ-Ns-hkM" customClass="TestBt" customModule="JYVideoEditor" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="116" width="97" height="69"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button4"/>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypa-Kd-Vwp">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="28g-XO-CEo"/>
+                                            <constraint firstAttribute="width" constant="100" id="ryi-F3-XgR"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wj-rW-gea">
+                                        <rect key="frame" x="0.0" y="55" width="150" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="h5t-6L-Zyv"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="bgView"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VX9-tk-Cfs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kye-hl-jLK" firstAttribute="centerY" secondItem="foC-7d-Ko3" secondAttribute="centerY" id="FhJ-37-fR0"/>
+                            <constraint firstItem="kye-hl-jLK" firstAttribute="centerX" secondItem="foC-7d-Ko3" secondAttribute="centerX" id="sPx-l5-myl"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="View"/>
                         </userDefinedRuntimeAttributes>
@@ -170,14 +267,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
