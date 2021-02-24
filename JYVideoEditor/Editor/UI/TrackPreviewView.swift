@@ -89,70 +89,72 @@ extension TrackPreviewView {
         super.layoutSubviews()
         if bounds != .zero {
             let width = bounds.width
-            scrollView.contentInset = .init(top: 0, left: width/2 - 20, bottom: 0, right: width/2 - 20)
+            scrollView.contentInset = .init(top: 0, left: width/2 - 20 + 100, bottom: 0, right: width/2 - 20)
         }
     }
     
-    func insertTrack(track: Track) {
-        if track.mediaType == .video,
-           let trackV = tracks.first,
-           let totalSeconds = manager.getTimeRange()?.duration.seconds,
-           let originImg = trackV.image,
-           let currentImg = track.previewImage {
-            
-            let progress = track.insertTime.seconds / totalSeconds
-            let insertX = CGFloat(progress) * originImg.size.width
-            
-            UIGraphicsBeginImageContextWithOptions(.init(width: originImg.size.width + currentImg.size.width, height: 50.0), false, 0)
-            guard let context = UIGraphicsGetCurrentContext() else {
-                return
-            }
-            defer { UIGraphicsEndImageContext() }
-            guard let originImgRef = originImg.cgImage else {return}
-            if let leftImgRef = originImgRef.cropping(to: .init(x: 0, y: 0, width: insertX * originImg.scale, height: 50.0 * originImg.scale)) {
-                let leftImgCroppingImg = UIImage(cgImage: leftImgRef, scale: originImg.scale, orientation: .up)
-                leftImgCroppingImg.draw(in: .init(x: 0, y: 0, width: insertX, height: 50.0))
-            }
-            if let rightImgRef = originImgRef.cropping(to: .init(x: insertX, y: 0, width: originImg.size.width * originImg.scale - insertX, height: 50.0 * originImg.scale)) {
-                let rightImgCroppingImg = UIImage(cgImage: rightImgRef, scale: originImg.scale, orientation: .up)
-                rightImgCroppingImg.draw(in: .init(x: insertX + currentImg.size.width, y: 0, width: originImg.size.width - insertX, height: 50.0))
-            }
-            if let currentImgRef = currentImg.cgImage {
-                context.draw(currentImgRef, in: .init(x: insertX, y: 0, width: currentImg.size.width, height: 50.0))
-            }
-            let resultImg = UIGraphicsGetImageFromCurrentImageContext()
-            trackV.image = resultImg
-            return
-        }
+    func insertTrack(track: Track, progress: Double) {
+//        if track.mediaType == .video,
+//           let trackV = tracks.first,
+//           let totalSeconds = manager.getTimeRange()?.duration.seconds,
+//           let originImg = trackV.image,
+//           let currentImg = track.previewImage {
+//
+//            let progress = track.insertTime.seconds / totalSeconds
+//            let insertX = CGFloat(progress) * originImg.size.width
+//
+//            UIGraphicsBeginImageContextWithOptions(.init(width: originImg.size.width + currentImg.size.width, height: 50.0), false, 0)
+//            guard let context = UIGraphicsGetCurrentContext() else {
+//                return
+//            }
+//            defer { UIGraphicsEndImageContext() }
+//            guard let originImgRef = originImg.cgImage else {return}
+//            if let leftImgRef = originImgRef.cropping(to: .init(x: 0, y: 0, width: insertX * originImg.scale, height: 50.0 * originImg.scale)) {
+//                let leftImgCroppingImg = UIImage(cgImage: leftImgRef, scale: originImg.scale, orientation: .up)
+//                leftImgCroppingImg.draw(in: .init(x: 0, y: 0, width: insertX, height: 50.0))
+//            }
+//            if let rightImgRef = originImgRef.cropping(to: .init(x: insertX, y: 0, width: originImg.size.width * originImg.scale - insertX, height: 50.0 * originImg.scale)) {
+//                let rightImgCroppingImg = UIImage(cgImage: rightImgRef, scale: originImg.scale, orientation: .up)
+//                rightImgCroppingImg.draw(in: .init(x: insertX + currentImg.size.width, y: 0, width: originImg.size.width - insertX, height: 50.0))
+//            }
+//            if let currentImgRef = currentImg.cgImage {
+//                context.draw(currentImgRef, in: .init(x: insertX, y: 0, width: currentImg.size.width, height: 50.0))
+//            }
+//            let resultImg = UIGraphicsGetImageFromCurrentImageContext()
+//            trackV.image = resultImg
+//            return
+//        }
         
         let trackView = TrackView()
         containerView.addArrangedSubview(trackView)
         
+        trackView.insertSubTrack(track: track, at: progress)
         tracks.append(trackView)
-        trackView.image = track.previewImage
+
     }
     
-    func clip() {
-        if let trackV = tracks.first,
-           let currentImg = trackV.image {
-            let currentClipRange = trackV.endProgress - trackV.startProgress
-            let clipX = currentImg.size.width * CGFloat(trackV.startProgress)
-            let width = currentImg.size.width * CGFloat(currentClipRange)
-            UIGraphicsBeginImageContextWithOptions(.init(width: width, height: 50.0), false, 0)
-            defer {
-                UIGraphicsEndImageContext()
-                
-            }
-            if let imgRef = currentImg.cgImage?.cropping(to: .init(x: clipX, y: 0, width: width * currentImg.scale, height: 50.0 * currentImg.scale)) {
-                let imgCroppingImg = UIImage(cgImage: imgRef, scale: currentImg.scale, orientation: .up)
-                imgCroppingImg.draw(in: .init(x: 0, y: 0, width: width, height: 50.0))
-            }
-            let resultImg = UIGraphicsGetImageFromCurrentImageContext()
-            
-            trackV.startProgress = 0.0
-            trackV.endProgress = 1.0
-            trackV.image = resultImg
-        }
+    func split(at progress: Double) {
+        tracks.first?.splitTrack(at: progress)
+//        if let trackV = tracks.first,
+//           let currentImg = trackV.image {
+//            let currentClipRange = trackV.endProgress - trackV.startProgress
+//            let clipX = currentImg.size.width * CGFloat(trackV.startProgress)
+//            let width = currentImg.size.width * CGFloat(currentClipRange)
+//            UIGraphicsBeginImageContextWithOptions(.init(width: width, height: 50.0), false, 0)
+//            defer {
+//                UIGraphicsEndImageContext()
+//
+//            }
+//            if let imgRef = currentImg.cgImage?.cropping(to: .init(x: clipX, y: 0, width: width * currentImg.scale, height: 50.0 * currentImg.scale)) {
+//                let imgCroppingImg = UIImage(cgImage: imgRef, scale: currentImg.scale, orientation: .up)
+//                imgCroppingImg.draw(in: .init(x: 0, y: 0, width: width, height: 50.0))
+//            }
+//            let resultImg = UIGraphicsGetImageFromCurrentImageContext()
+//
+//            trackV.startProgress = 0.0
+//            trackV.endProgress = 1.0
+//            trackV.image = resultImg
+//        }
     }
 }
 

@@ -86,12 +86,20 @@ extension EditorViewController: TrackPreviewViewDelegate {
 
 extension EditorViewController: EditorManagerDelegate {
     func managerDidInsertNewTrack(_ track: Track) {
-        trackPreviewView.insertTrack(track: track)
+        let currentTime = self.player.currentTime()
+        if let totalSeconds = editorManager.getTimeRange()?.duration.seconds {
+            
+            let progress = currentTime.seconds / totalSeconds
+            trackPreviewView.insertTrack(track: track, progress: progress)
+        }else {
+            trackPreviewView.insertTrack(track: track, progress: 0)
+        }
         updatePlayer()
     }
+        
     func managerDidClipEnd() {
-        trackPreviewView.clip()
-        updatePlayer()
+//        trackPreviewView.clip()
+//        updatePlayer()
     }
 }
 
@@ -103,20 +111,11 @@ extension EditorViewController {
         }
     }
     @IBAction private func clickClip() {
-        if let startProgress = trackPreviewView.tracks.first?.startProgress,
-           let endProgress = trackPreviewView.tracks.first?.endProgress,
-           let timeRange = editorManager.getTimeRange() {
+        let currentTime = self.player.currentTime()
+        if let totalSeconds = editorManager.getTimeRange()?.duration.seconds {
             
-            let clipStartTime = CMTimeMultiplyByFloat64(timeRange.duration, multiplier: startProgress)
-            let clipEndTime = CMTimeMultiplyByFloat64(timeRange.duration, multiplier: endProgress)
-            let firstClipTimeRange = CMTimeRange(start: .zero, end: clipStartTime)
-            let secondClipTimeRange = CMTimeRange(start: clipEndTime, end: timeRange.duration)
-            do {
-                try editorManager.removeTrack(type: .video, at: [firstClipTimeRange, secondClipTimeRange])
-                print("clip video success")
-            }catch {
-                print("clip video error: \(error)")
-            }
+            let progress = currentTime.seconds / totalSeconds
+            trackPreviewView.split(at: progress)
         }
     }
     
